@@ -1,0 +1,480 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>The Privatisation Authority</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Privatisation Authority Website" name="keywords">
+    <meta content="Privatisation Authority Website" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.png' %}" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    {% include "navbar.html" %}
+<style>
+    /* Custom dropdown submenu styling */
+    .dropdown-submenu {
+        position: relative;
+        
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        display: none;
+        position: absolute;
+        background-color: #24702A; /* Same as other dropdowns */
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+    }
+
+    .dropdown-submenu:hover .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+        
+    }
+
+    .dropdown-menu .dropdown-item {
+        color: #000; /* Same as other dropdown items */
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        display: block;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.5;
+        white-space: nowrap;
+        background: 0 0;
+        border: 0;
+    }
+
+    .dropdown-menu .dropdown-item:hover, 
+    .dropdown-menu .dropdown-item:focus {
+        color: #16181b;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item {
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-toggle::after {
+        content: none;
+    }
+
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link .fas {
+        margin-left: 5px;
+    }
+
+    .nav-item.dropdown:hover .nav-link {
+        color: #ffffff;
+        background-color: #24702A;
+    }
+
+
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+
+    /* Styles for laptops (typically between 1024px and 1440px wide) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    /* Add your styles here */
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+}
+
+
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .navbar-brand .logo {
+            height: 120px;
+            margin-right: 10px;
+            margin-top: -35px;
+        }
+
+        .navbar-collapse.show {
+            display: block;
+        }
+
+        .navbar-nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar-nav .nav-link {
+            margin: 10px 0;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .navbar-brand .logo {
+            height: 80px; /* Adjust logo height for small screens */
+            margin-top: -10px;
+        }
+    }
+</style>
+<div class="accessibility-icon" onclick="toggleAccessibilityMenu()">
+    <img src="{% static 'img/disable.jpeg' %}" alt="Accessibility Icon">
+
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <button onclick="increaseTextSize()"><i class="fas fa-search-plus"></i> Increase Text Size</button>
+    <button onclick="decreaseTextSize()"><i class="fas fa-search-minus"></i> Decrease Text Size</button>
+    <button onclick="grayscale()"><i class="fas fa-adjust"></i> Grayscale</button>
+    <button onclick="highContrast()"><i class="fas fa-highlighter"></i> High Contrast</button>
+    <button onclick="negativeContrast()"><i class="fas fa-low-vision"></i> Negative Contrast</button>
+    <button onclick="lightBackground()"><i class="fas fa-lightbulb"></i> Light Background</button>
+    <button onclick="underlineLinks()"><i class="fas fa-underline"></i> Underline Links</button>
+    <button onclick="readableFont()"><i class="fas fa-font"></i> Readable Font</button>
+    <button onclick="resetSettings()"><i class="fas fa-undo"></i> Reset</button>
+</div>
+
+<script>
+    let initialFontSizes = [];
+
+    function storeInitialFontSizes() {
+        initialFontSizes = [];
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            initialFontSizes.push({element: el, size: window.getComputedStyle(el).fontSize});
+        });
+    }
+
+    function applyInitialFontSizes() {
+        initialFontSizes.forEach(item => {
+            item.element.style.fontSize = item.size;
+        });
+    }
+
+    function toggleAccessibilityMenu() {
+        var menu = document.getElementById('accessibilityMenu');
+        var icon = document.querySelector('.accessibility-icon');
+        var screenWidth = window.innerWidth;
+
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+            icon.style.right = '2px';
+        } else {
+            menu.style.display = 'block';
+            if (screenWidth <= 768) {
+                icon.style.right = '165px'; // Adjust for smaller screens
+            } else {
+                icon.style.right = '230px'; // Default adjustment
+            }
+        }
+    }
+
+    function increaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size + 2) + 'px';
+        });
+    }
+
+    function decreaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size - 2) + 'px';
+        });
+    }
+
+    function grayscale() {
+        document.body.style.filter = 'grayscale(100%)';
+    }
+
+    function highContrast() {
+        document.body.style.filter = 'contrast(200%)';
+    }
+
+    function negativeContrast() {
+        document.body.style.filter = 'invert(100%)';
+    }
+
+    function lightBackground() {
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#000000';
+    }
+
+    function underlineLinks() {
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'underline';
+        }
+    }
+
+    function readableFont() {
+        document.body.style.fontFamily = 'Arial, sans-serif';
+    }
+
+    function resetSettings() {
+        document.body.style.filter = 'none';
+        document.body.style.backgroundColor = '';
+        document.body.style.color = '';
+        applyInitialFontSizes();
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'none';
+        }
+        document.body.style.fontFamily = '';
+    }
+
+    // Store initial font sizes on page load
+    window.onload = storeInitialFontSizes;
+</script>
+<style>
+    .accessibility-icon {
+        position: fixed;
+        top: 100px;
+        right: 2px;
+        background-color: #000;
+        border: 2px solid #24702A;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: right 0.3s;
+    }
+
+    .accessibility-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .accessibility-menu {
+        display: none;
+        position: fixed;
+        top: 160px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        z-index: 1000;
+        width: 200px;
+    }
+
+    .accessibility-menu button {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+
+    .accessibility-menu button:hover {
+        background-color: #e0e0e0;
+    }
+
+    .accessibility-menu i {
+        margin-right: 10px;
+    }
+    @media (max-width: 768px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 10px;
+        }
+
+        .accessibility-menu {
+            top: 120px;
+            right: 10px;
+            width: 150px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 5px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .accessibility-menu {
+            top: 110px;
+            right: 5px;
+            width: 160px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 7px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarCollapse.classList.toggle('show');
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle hover for dropdown-submenu
+        document.querySelectorAll('.dropdown-submenu').forEach(function (element) {
+            element.addEventListener('mouseover', function () {
+                this.querySelector('.dropdown-menu').style.display = 'block';
+            });
+            element.addEventListener('mouseout', function () {
+                this.querySelector('.dropdown-menu').style.display = 'none';
+            });
+        });
+    });
+</script>
+
+<!-- Make sure to include Font Awesome for the dropdown icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+    .container1 {
+        margin: 20px 30px; /* Margin of 20 to 30px left */
+        color: #000000; /* Text color */
+    }
+
+    .title {
+        text-align: center;
+        text-decoration: underline;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 40px; /* Adjust as needed for proper indentation */
+        
+    }
+</style>
+</head>
+<body>
+
+    <div class="container1">
+        <h2 class="title">BENEFITS OF PRIVATISATION</h2>
+        <ul>
+            The desired benefits from privatization are listed under Section 18 (1) of the Privatization Act 2005. They include but are not limited to the following:
+            <li>Improvement of infrastructure and the delivery of public services by the involvement of private capital and expertise.</li>
+            <li>Reduction of the demand for government resources.</li>
+            <li>
+                Generation of additional government revenues by receiving compensation for privatizations.
+            </li>
+            <li>
+                Improvement of the regulation of the economy by reducing conflicts between the public sector's regulatory and commercial functions.
+            </li>
+            <li>
+                Improvement of the efficiency of the Kenyan economy by making it more responsive to market forces.
+            </li>
+            <li>
+                Broadening of the base of ownership in the Kenyan economy.
+            </li>
+            <li>Enhancement and development of the capital markets. </li>
+        </ul>
+    </div>
+<!-- Footer Start -->
+<!-- Footer Start -->
+<div class="footer wow fadeIn" data-wow-delay="0.3s">
+    {% include "footer.html" %}
+    
+</div>
+<!-- Footer End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+        <script src="{% static 'lib/wow/wow.min.js' %}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+        <script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+        <script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+        <script src="{% static 'lib/slick/slick.min.js' %}"></script>
+        
+        <script src="{% static 'js/main.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+    </body>
+</html>

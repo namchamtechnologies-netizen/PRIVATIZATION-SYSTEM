@@ -1,0 +1,626 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>The Privatisation Authority</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Privatisation Authority Website" name="keywords">
+    <meta content="Privatisation Authority Website" name="description">
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.png' %}" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+<style>
+    /* Custom dropdown submenu styling */
+    .dropdown-submenu {
+        position: relative;
+        
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        display: none;
+        position: absolute;
+        background-color: #24702A; /* Same as other dropdowns */
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+    }
+
+    .dropdown-submenu:hover .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+        
+    }
+
+    .dropdown-menu .dropdown-item {
+        color: #000; /* Same as other dropdown items */
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        display: block;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.5;
+        white-space: nowrap;
+        background: 0 0;
+        border: 0;
+    }
+
+    .dropdown-menu .dropdown-item:hover, 
+    .dropdown-menu .dropdown-item:focus {
+        color: #16181b;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item {
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-toggle::after {
+        content: none;
+    }
+
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link .fas {
+        margin-left: 5px;
+    }
+
+    .nav-item.dropdown:hover .nav-link {
+        color: #ffffff;
+        background-color: #24702A;
+    }
+
+
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+
+    /* Styles for laptops (typically between 1024px and 1440px wide) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    /* Add your styles here */
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+}
+
+
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .navbar-brand .logo {
+            height: 120px;
+            margin-right: 10px;
+            margin-top: -35px;
+        }
+
+        .navbar-collapse.show {
+            display: block;
+        }
+
+        .navbar-nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar-nav .nav-link {
+            margin: 10px 0;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .navbar-brand .logo {
+            height: 80px; /* Adjust logo height for small screens */
+            margin-top: -10px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarCollapse.classList.toggle('show');
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle hover for dropdown-submenu
+        document.querySelectorAll('.dropdown-submenu').forEach(function (element) {
+            element.addEventListener('mouseover', function () {
+                this.querySelector('.dropdown-menu').style.display = 'block';
+            });
+            element.addEventListener('mouseout', function () {
+                this.querySelector('.dropdown-menu').style.display = 'none';
+            });
+        });
+    });
+</script>
+<div class="accessibility-icon" onclick="toggleAccessibilityMenu()">
+    <img src="{% static 'img/disable.jpeg' %}" alt="Accessibility Icon">
+
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <button onclick="increaseTextSize()"><i class="fas fa-search-plus"></i> Increase Text Size</button>
+    <button onclick="decreaseTextSize()"><i class="fas fa-search-minus"></i> Decrease Text Size</button>
+    <button onclick="grayscale()"><i class="fas fa-adjust"></i> Grayscale</button>
+    <button onclick="highContrast()"><i class="fas fa-highlighter"></i> High Contrast</button>
+    <button onclick="negativeContrast()"><i class="fas fa-low-vision"></i> Negative Contrast</button>
+    <button onclick="lightBackground()"><i class="fas fa-lightbulb"></i> Light Background</button>
+    <button onclick="underlineLinks()"><i class="fas fa-underline"></i> Underline Links</button>
+    <button onclick="readableFont()"><i class="fas fa-font"></i> Readable Font</button>
+    <button onclick="resetSettings()"><i class="fas fa-undo"></i> Reset</button>
+</div>
+
+<script>
+    let initialFontSizes = [];
+
+    function storeInitialFontSizes() {
+        initialFontSizes = [];
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            initialFontSizes.push({element: el, size: window.getComputedStyle(el).fontSize});
+        });
+    }
+
+    function applyInitialFontSizes() {
+        initialFontSizes.forEach(item => {
+            item.element.style.fontSize = item.size;
+        });
+    }
+
+    function toggleAccessibilityMenu() {
+        var menu = document.getElementById('accessibilityMenu');
+        var icon = document.querySelector('.accessibility-icon');
+        var screenWidth = window.innerWidth;
+
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+            icon.style.right = '2px';
+        } else {
+            menu.style.display = 'block';
+            if (screenWidth <= 768) {
+                icon.style.right = '165px'; // Adjust for smaller screens
+            } else {
+                icon.style.right = '230px'; // Default adjustment
+            }
+        }
+    }
+
+    function increaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size + 2) + 'px';
+        });
+    }
+
+    function decreaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size - 2) + 'px';
+        });
+    }
+
+    function grayscale() {
+        document.body.style.filter = 'grayscale(100%)';
+    }
+
+    function highContrast() {
+        document.body.style.filter = 'contrast(200%)';
+    }
+
+    function negativeContrast() {
+        document.body.style.filter = 'invert(100%)';
+    }
+
+    function lightBackground() {
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#000000';
+    }
+
+    function underlineLinks() {
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'underline';
+        }
+    }
+
+    function readableFont() {
+        document.body.style.fontFamily = 'Arial, sans-serif';
+    }
+
+    function resetSettings() {
+        document.body.style.filter = 'none';
+        document.body.style.backgroundColor = '';
+        document.body.style.color = '';
+        applyInitialFontSizes();
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'none';
+        }
+        document.body.style.fontFamily = '';
+    }
+
+    // Store initial font sizes on page load
+    window.onload = storeInitialFontSizes;
+</script>
+<style>
+    .accessibility-icon {
+        position: fixed;
+        top: 100px;
+        right: 2px;
+        background-color: #000;
+        border: 2px solid #24702A;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: right 0.3s;
+    }
+
+    .accessibility-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .accessibility-menu {
+        display: none;
+        position: fixed;
+        top: 160px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        z-index: 1000;
+        width: 200px;
+    }
+
+    .accessibility-menu button {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+
+    .accessibility-menu button:hover {
+        background-color: #e0e0e0;
+    }
+
+    .accessibility-menu i {
+        margin-right: 10px;
+    }
+    @media (max-width: 768px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 10px;
+        }
+
+        .accessibility-menu {
+            top: 120px;
+            right: 10px;
+            width: 150px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 5px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .accessibility-menu {
+            top: 110px;
+            right: 5px;
+            width: 160px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 7px;
+        }
+    }
+</style>
+
+<!-- Make sure to include Font Awesome for the dropdown icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<style>
+    .title {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        margin: 20px 0;
+        text-decoration: underline;
+        color: #000000;
+    }
+    .tab-container {
+        display: flex;
+        background-color: #f1f1f1;
+        justify-content: center;
+        flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+    }
+    .tab {
+        flex: 1;
+        max-width: 200px;
+        padding: 10px 12px;
+        text-align: center;
+        cursor: pointer;
+        background-color: red;
+        color: white;
+        border: 1px solid #ccc;
+        border-bottom: none;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .tab:hover {
+        background-color: #ffffff;
+        color: red;
+    }
+    .tab-content {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-top: none;
+        text-align: left; /* Ensure all text starts from the left */
+        color: #000000;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    .tab-content h2,
+    .tab-content p,
+    .tab-content ul {
+        margin-left: 0; /* Ensure text aligns to the left */
+    }
+    .tab-content h2 {
+        margin-top: 0; /* Optional: Reduce margin-top for headings */
+    }
+
+    /* Responsive styling */
+    @media screen and (max-width: 768px) {
+        .tab {
+            flex: 1 1 100%; /* Make tabs take full width on smaller screens */
+            max-width: 200px; /* Remove max-width */
+            margin-top: 20px;
+        }
+    }
+</style>
+
+<div class="title">PRIVATISATION PROGRAMME</div>
+<div class="tab-container">
+    <div class="tab" onclick="showContent('overview')">Overview</div>
+    <div class="tab" onclick="showContent('benefits')">Benefits of Privatisation</div>
+    <div class="tab" onclick="showContent('methods')">Methods of Privatisation</div>
+    <div class="tab" onclick="showContent('approved')">Approved Privatisations</div>
+    <div class="tab" onclick="showContent('status')">Privatisation Status</div>
+</div>
+
+<div id="overview" class="tab-content">
+    <h2>Overview</h2>
+    <p>After Kenya’s independence in 1963, the establishment of the parastatals was driven by a national desire to:</p>
+    <ul>
+        <li>Accelerate economic social development;</li>
+        <li>Redress regional economic imbalances;</li>
+        <li>Increase Kenyan Citizen’s participation in the economy;</li>
+        <li>Promote indigenous entrepreneurship;</li>
+        <li>Promote foreign investments (through joint ventures).</li>
+    </ul>
+    <p>This desire was expressed in the Sessional Paper No. 10 of 1965 on African Socialism and its application to planning in Kenya.</p>
+    <h3>REVIEW OF THE PUBLIC ENTERPRISES PERFORMANCE</h3>
+    <p>A comprehensive review of the Public Enterprises Performance was carried out in 1979 (the Report on the Review of Statutory Boards) and 1982 (the Report of the Working Party on Government Expenditures). The Report on Review of Statutory Boards pointed out that:</p>
+    <ul>
+        <li>The growth in the parastatal sector had not been accompanied by development of efficient systems to ensure that the sector plays its role in an efficient manner;</li>
+        <li>There was clear evidence of prolonged inefficiency, financial mismanagement, waste and malpractices in many parastatals;</li>
+        <li>Government investments had largely been at the initiative of private promoters with government being brought in either as an indispensable partner or to undertake rescue measures;</li>
+        <li>Many of the parastatals had moved away from their primary functions, especially the regulatory boards most of which had translated their regulatory role into executive one, resulting in waste and confusion;</li>
+        <li>There was danger of over-politicizing production and distribution through establishment of too many parastatals.</li>
+    </ul>
+    <p>The Report on the Working Party on Government Expenditures concluded that productivity of state corporations was quite low while at the same time they continued to absorb an excessive portion of the budget, becoming a principal cause of long-term fiscal problem. The report observed that:</p>
+    <ul>
+        <li>Nationalization had remained merely presentational through government ownership;</li>
+        <li>State corporations’ operations had become inefficient and unprofitable, partly due to multiplicity of objectives;</li>
+        <li>Existence of parastatals in commercial activities had stifled private sector initiatives; and</li>
+        <li>Many of the joint ventures had failed, requiring the Government to shoulder major financial burden.</li>
+    </ul>
+    <p>The Report on the Working Party on Government Expenditures concluded that some of the resources diverted to the government to finance the state corporations’ activities could have contributed more to national development if these state corporations were left in the private sector. The report recommended that:</p>
+    <ul>
+        <li>The Government should act as a creator of favourable setting within which people can develop themselves and the economy</li>
+        <li>The Government should divest from its investments in commercial and industrial enterprises to transfer active participation to more Kenyans through participation in shareholding</li>
+        <li>The Government should reduce exposure to risk in areas in which the Private Sector can assume risk without government intervention</li>
+        <li>The Government should dismantle some of the existing administrative hurdles which discourage private sector initiative and provide needless opportunities for corruption</li>
+        <li>The Government should reorganize legal and institutional framework regarding monitoring and supervision of parastatals.</li>
+    </ul>
+    <p>Following the two reviews a number of measures were put in place. One of the measures was the enactment of the State Corporations Act. However, although this was a major attempt to streamline the management of the state corporations, the performance of most of the corporations continued to deteriorate. One reason is the continued reliance on limited public sector financing. The state corporations continued relying on public sector financing which was not adequate to meet all the sector’s needs. They continued to be financed from loans borrowed by the government and/or channeled through them as government equity; loans borrowed by the enterprises on government guarantees which in most cases ended up being repaid by the Treasury when the corporations defaulted; funds provided directly by the Treasury as grants or equity; or through internally generated funds. The internally generated funds were, however, inadequate due to huge debt burdens, tariffs that were below cost recovery levels, over employment, which caused most of the revenue to be used in payment of salaries, non-viable ventures which siphoned away resources from the enterprises, corruption and mismanagement in general. In addition most of the parastatals were under capitalization from the time of incorporation as they were mainly financed from loans without due regard to the establishment of a strong financial base. Most of them also continued to spread their resources thinly due to multiplicity of objectives and poor accountability.</p>
+    <p>In July 1992, through the issuance of the Policy Paper on Public Enterprise Reform and Privatisation, the Government outlined the scope of the Public Sector Reform Programme the institutional framework and the guidelines and procedures for privatising Public Enterprises (PEs). The Policy Paper identified 240 commercial PEs with public sector equity participation and classified them into two categories:</p>
+    <ul>
+        <li>207 Non strategic commercial PEs which were to be privatised; and</li>
+        <li>33 Strategic Commercial PEs which were to be re-structured and retained under public sector control.</li>
+    </ul>
+    <p>By the end of the first phase of the privatisation programme in 2002, most of the non-strategic commercial enterprises had either been fully or partially privatised. At that time, the direction of thinking regarding restructuring and retention of a number of strategic corporations under Government operation and control had also changed due to:</p>
+    <ul>
+        <li>Inadequacy of public resources to finance the requisite investment in infrastructure facilities;</li>
+        <li>The need to arrest continued deterioration in infrastructure services;</li>
+        <li>Lesson from other countries which had succeeded in improving their infrastructure services through Public Private Partnerships; and</li>
+        <li>Restructuring which resulted in separation of commercial activities from regulatory functions, making it possible to privatise commercial activities while ensuring Government continued presence in the privatised sectors through establishment of strong legal and institutional regulatory frameworks.</li>
+    </ul>
+    <p>Although numerous enterprises were privatised during the first phase, the impact on the economy was limited because:</p>
+    <ul>
+        <li>Most of the enterprises privatised under this Phase were relatively small and self-sufficient,</li>
+        <li>Most of the large companies were considered strategic and therefore not privatised, and</li>
+        <li>The programme had institutional and process weaknesses arising from failure to entrench the procedures and institutional framework in law.</li>
+    </ul>
+    <p>As a result, the Parastatal Reform Programme Committee (PRPC) eventually became dormant while its secretariat (The Executive Secretariat and Technical Unit (ESTU)),which was the administrative organ, was reduced to a skeleton staff following closure of the World Bank Credit under which it was funded. Lack of clearly defined processes and an effective communications strategy also exposed the Programme to accusation of corruption. There was also limited participation by individual Kenyans in most of the transactions due to the transaction methods applied.</p>
+    <p>Under the Economic Recovery Strategy for Wealth and Employment Creation (ERSWEC) 2003-2007, the Government implemented a number of key privatisation transactions. These included the Kenya Electricity Generating Company (KenGen) Initial Public Offer (IPO), the concessioning of the Kenya Railways operations, Mumias Sugar Company Second Offer, Kenya Reinsurance Corporation IPO, Sale of 51% Telkom Kenya shareholding to a strategic partner and the Safaricom IPO. Through these transactions, the country mobilized over Kshs.80 billion which was used to support the country’s recovery and overall development agenda.</p>
+    <p>Following expiry of the Economic Recovery Strategy for Wealth and Employment Creation (ERSWEC) 2003-2007, Kenya embarked on implementation of a long term strategy, Vision 2030. On basis of Vision 2030 and its First Medium Term plan for the period 2008 – 2020 the Government focused on four priority areas namely:</p>
+    <ul>
+        <li>Restoring the economy to a higher broad-based long term growth path with expanded opportunities for all Kenyans;</li>
+        <li>Creating employment opportunities for the youth for a more stable and cohesive society;</li>
+        <li>Reducing poverty and inequality through accelerated regional development; and</li>
+        <li>Deepening human capital development efforts to increase productivity and prosperity.</li>
+    </ul>
+    <p>To support the pursuit of these goals, privatisation seeks to improve the efficiency and competitiveness of Kenya’s productive resources by subjecting more of Kenya’s
+
+ production to market forces, mobilizing investment resources for rehabilitation, expanding and modernizing key infrastructure facilities, developing the capital markets and supporting the budget through privatisation proceeds and increased taxes. Government is also expected to earn increased dividends from its remaining shareholding as a result of improved performance following enterprise privatisation.</p>
+</div>
+</div>
+<div id="benefits" class="tab-content">
+    <h2>Benefits of Privatisation</h2>
+    <ul>
+        The desired benefits from privatization are listed under Section 18 (1) of the Privatization Act 2005. They include but are not limited to the following:
+        <li>Improvement of infrastructure and the delivery of public services by the involvement of private capital and expertise.</li>
+        <li>Reduction of the demand for government resources.</li>
+        <li>
+            Generation of additional government revenues by receiving compensation for privatizations.
+        </li>
+        <li>
+            Improvement of the regulation of the economy by reducing conflicts between the public sector's regulatory and commercial functions.
+        </li>
+        <li>
+            Improvement of the efficiency of the Kenyan economy by making it more responsive to market forces.
+        </li>
+        <li>
+            Broadening of the base of ownership in the Kenyan economy.
+        </li>
+        <li>Enhancement and development of the capital markets. </li>
+    </ul>
+</div>
+<div id="methods" class="tab-content">
+    <h2>Methods of Privatisation</h2>
+    <ul>
+        <li>Initial public offer of shares;</li>
+        <li>Sale of shares by public tender;</li>
+        <li>Sale resulting from the exercise of pre-emptive rights; or</li>
+        <li>Such other method determined by the Cabinet.</li>
+    </ul>
+</div>
+<div id="approved" class="tab-content">
+    <h2>Approved Privatisations</h2>
+    <ul>
+        <li>To be updated.</li>
+    </ul>
+</div>
+<div id="status" class="tab-content">
+    <h2>Privatisation Status</h2>
+    <ul>
+        <li>To be updated.</li>
+    </ul>
+</div>
+
+<script>
+function showContent(tabId) {
+    var contents = document.getElementsByClassName('tab-content');
+    for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove('active');
+    }
+    document.getElementById(tabId).classList.add('active');
+}
+</script>
+
+<!-- Footer Start -->
+<!-- Footer Start -->
+<div class="footer wow fadeIn" data-wow-delay="0.3s">
+    {% include "footer.html" %}
+</div>
+<!-- Footer End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/slick/slick.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+    </body>
+</html>

@@ -1,0 +1,1204 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>The Privatization  Commission</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Privatisation Authority Website" name="keywords">
+    <meta content="Privatisation Authority Website" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.png' %}" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    
+</head>
+
+<body>
+    {% include "navbar.html" %}
+
+<style>
+    /* Custom dropdown submenu styling */
+    .dropdown-submenu {
+        position: relative;
+        
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        display: none;
+        position: absolute;
+        background-color: #24702A; /* Same as other dropdowns */
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+    }
+
+    .dropdown-submenu:hover .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+        
+    }
+
+    .dropdown-menu .dropdown-item {
+        color: #000; /* Same as other dropdown items */
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        display: block;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.5;
+        white-space: nowrap;
+        background: 0 0;
+        border: 0;
+    }
+
+    .dropdown-menu .dropdown-item:hover, 
+    .dropdown-menu .dropdown-item:focus {
+        color: #16181b;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item {
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-toggle::after {
+        content: none;
+    }
+
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link .fas {
+        margin-left: 5px;
+    }
+
+    .nav-item.dropdown:hover .nav-link {
+        color: #ffffff;
+        background-color: #24702A;
+    }
+
+
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+
+    /* Styles for laptops (typically between 1024px and 1440px wide) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    /* Add your styles here */
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+}
+
+
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .navbar-brand .logo {
+            height: 120px;
+            margin-right: 10px;
+            margin-top: -35px;
+        }
+
+        .navbar-collapse.show {
+            display: block;
+        }
+
+        .navbar-nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar-nav .nav-link {
+            margin: 10px 0;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .navbar-brand .logo {
+            height: 80px; /* Adjust logo height for small screens */
+            margin-top: -10px;
+        }
+    }
+</style>
+<style>
+    .accessibility-icon {
+        position: fixed;
+        top: 100px;
+        right: 2px;
+        background-color: #000;
+        border: 2px solid #24702A;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: right 0.3s;
+    }
+
+    .accessibility-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .accessibility-menu {
+        display: none;
+        position: fixed;
+        top: 160px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        z-index: 1000;
+        width: 200px;
+    }
+
+    .accessibility-menu button {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+
+    .accessibility-menu button:hover {
+        background-color: #e0e0e0;
+    }
+
+    .accessibility-menu i {
+        margin-right: 10px;
+    }
+    @media (max-width: 768px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 10px;
+        }
+
+        .accessibility-menu {
+            top: 120px;
+            right: 10px;
+            width: 150px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 5px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .accessibility-menu {
+            top: 110px;
+            right: 5px;
+            width: 160px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 7px;
+        }
+    }
+</style>
+
+<div class="accessibility-icon" onclick="toggleAccessibilityMenu()">
+    <img src="{% static 'img/disable.jpeg' %}" alt="Accessibility Icon">
+
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <button onclick="increaseTextSize()"><i class="fas fa-search-plus"></i> Increase Text Size</button>
+    <button onclick="decreaseTextSize()"><i class="fas fa-search-minus"></i> Decrease Text Size</button>
+    <button onclick="grayscale()"><i class="fas fa-adjust"></i> Grayscale</button>
+    <button onclick="highContrast()"><i class="fas fa-highlighter"></i> High Contrast</button>
+    <button onclick="negativeContrast()"><i class="fas fa-low-vision"></i> Negative Contrast</button>
+    <button onclick="lightBackground()"><i class="fas fa-lightbulb"></i> Light Background</button>
+    <button onclick="underlineLinks()"><i class="fas fa-underline"></i> Underline Links</button>
+    <button onclick="readableFont()"><i class="fas fa-font"></i> Readable Font</button>
+    <button onclick="resetSettings()"><i class="fas fa-undo"></i> Reset</button>
+</div>
+
+<script>
+    let initialFontSizes = [];
+
+    function storeInitialFontSizes() {
+        initialFontSizes = [];
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            initialFontSizes.push({element: el, size: window.getComputedStyle(el).fontSize});
+        });
+    }
+
+    function applyInitialFontSizes() {
+        initialFontSizes.forEach(item => {
+            item.element.style.fontSize = item.size;
+        });
+    }
+
+    function toggleAccessibilityMenu() {
+        var menu = document.getElementById('accessibilityMenu');
+        var icon = document.querySelector('.accessibility-icon');
+        var screenWidth = window.innerWidth;
+
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+            icon.style.right = '2px';
+        } else {
+            menu.style.display = 'block';
+            if (screenWidth <= 768) {
+                icon.style.right = '165px'; // Adjust for smaller screens
+            } else {
+                icon.style.right = '230px'; // Default adjustment
+            }
+        }
+    }
+
+    function increaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size + 2) + 'px';
+        });
+    }
+
+    function decreaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size - 2) + 'px';
+        });
+    }
+
+    function grayscale() {
+        document.body.style.filter = 'grayscale(100%)';
+    }
+
+    function highContrast() {
+        document.body.style.filter = 'contrast(200%)';
+    }
+
+    function negativeContrast() {
+        document.body.style.filter = 'invert(100%)';
+    }
+
+    function lightBackground() {
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#000000';
+    }
+
+    function underlineLinks() {
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'underline';
+        }
+    }
+
+    function readableFont() {
+        document.body.style.fontFamily = 'Arial, sans-serif';
+    }
+
+    function resetSettings() {
+        document.body.style.filter = 'none';
+        document.body.style.backgroundColor = '';
+        document.body.style.color = '';
+        applyInitialFontSizes();
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'none';
+        }
+        document.body.style.fontFamily = '';
+    }
+
+    // Store initial font sizes on page load
+    window.onload = storeInitialFontSizes;
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarCollapse.classList.toggle('show');
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle hover for dropdown-submenu
+        document.querySelectorAll('.dropdown-submenu').forEach(function (element) {
+            element.addEventListener('mouseover', function () {
+                this.querySelector('.dropdown-menu').style.display = 'block';
+            });
+            element.addEventListener('mouseout', function () {
+                this.querySelector('.dropdown-menu').style.display = 'none';
+            });
+        });
+    });
+</script>
+
+<!-- Make sure to include Font Awesome for the dropdown icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        
+        
+        
+        
+     <!-- Carousel Start -->
+<div id="carousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel" data-slide-to="1"></li>
+        <li data-target="#carousel" data-slide-to="2"></li>
+        <li data-target="#carousel" data-slide-to="3"></li>
+        <li data-target="#carousel" data-slide-to="4"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="{% static 'img/private1.jpg' %}" alt="Carousel Image 1" class="d-block w-100">
+            <div class="carousel-caption">
+                <p class="animated fadeInRight">Building a Sustainable Future</p>
+                <h1 class="animated fadeInLeft">Commitment to Excellence</h1>
+                <a class="btn animated fadeInUp" href="{% url 'mandate' %}">Learn More</a>
+            </div>
+        </div>
+    
+        <div class="carousel-item">
+            <img src="{% static 'img/slider-two12_0-1.jpg' %}" alt="Carousel Image 2" class="d-block w-100">
+            <div class="carousel-caption">
+                <p class="animated fadeInRight">Formulating Privatization Strategies</p>
+                <h1 class="animated fadeInLeft">Driving Economic Growth</h1>
+                <a class="btn animated fadeInUp" href="{% url 'mandate' %}">Learn More</a>
+            </div>
+        </div>
+    
+        <div class="carousel-item">
+            <img src="{% static 'img/kph.png' %}" alt="Carousel Image 3" class="d-block w-100">
+            <div class="carousel-caption">
+                <p class="animated fadeInRight">Implementing Key Initiatives</p>
+                <h1 class="animated fadeInLeft">Ensuring Successful Transitions</h1>
+                <a class="btn animated fadeInUp" href="{% url 'mandate' %}">Learn More</a>
+            </div>
+        </div>
+        
+        <div class="carousel-item">
+            <img src="{% static 'img/kenyar.jpg' %}" alt="Carousel Image 4" class="d-block w-100">
+            <div class="carousel-caption">
+                <p class="animated fadeInRight">Fostering Public-Private Partnerships</p>
+                <h1 class="animated fadeInLeft">Innovative Solutions for Progress</h1>
+                <a class="btn animated fadeInUp" href="{% url 'mandate' %}">Learn More</a>
+            </div>
+        </div>
+    
+        <div class="carousel-item">
+            <img src="{% static 'img/kw.jpg' %}" alt="Carousel Image 5" class="d-block w-100">
+            <div class="carousel-caption">
+                <p class="animated fadeInRight">Advancing Infrastructure Development</p>
+                <h1 class="animated fadeInLeft">Transforming Communities</h1>
+                <a class="btn animated fadeInUp" href="{% url 'mandate' %}">Learn More</a>
+            </div>
+        </div>
+    </div>
+    
+
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+
+
+<style>
+.carousel-item img {
+    object-fit:contain; /* Use 'cover' or 'contain' based on your requirement */
+    height: 100%;
+    width: 100%;
+}
+</style>
+
+        
+
+
+            <!-- Feature Start-->
+            <div class="feature wow fadeInUp" data-wow-delay="0.1s">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 col-md-12" style="background-color:  #E42130;color:#000;">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="flaticon-worker"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h3 style="color: #ffffff;">Expertise in Privatization</h3>
+                                    <p style="color: #ffffff;">Our team consists of experts with deep knowledge and experience in Privatization Programme</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12" style="background-color: #24702A;">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="flaticon-building"></i>
+                                </div>
+                                <div class="feature-text">
+                                    <h3 style="color: #ffffff;">Commitment to Quality</h3>
+                                    <p style="color: #ffffff;">The Privatization Commission is committed to formulate and implement the Privatization Programme in a transparent, collaborative and competitive manner to achieve desired National objective.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-12" style="background-color:#000000;">
+                            <div class="feature-item">
+                                <div class="feature-icon">
+                                    <i class="flaticon-call"></i>
+                                </div>
+                                <div class="feature-text">
+                        <h3 style="color: #ffffff;">24/7 Support</h3>
+                        <p style="color: #ffffff;">Our dedicated support team is available round-the-clock to address any inquiries or concerns regarding privatization initiatives.</p>
+                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Feature End-->
+
+<!-- About Start -->
+<div class="about" id="about">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="{% static 'img/pc-about-1.png' %}" alt="Privatisation Authority Logo">
+
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="section-header text-left">
+                    <p style="color: #24702A;">Welcome to the Privatization Commission</p>
+                    <h2>Driving Economic Growth Through Privatization</h2>
+                </div>
+                <div class="about-text">
+                    <p style="color: #000000;">
+                        Since independence in 1963, Kenya has aimed to boost economic development and citizen participation through the establishment of parastatals.
+                    </p>
+                    <p style="color: #000000;">
+                        Over time, reviews revealed inefficiencies and recommended privatization to enhance performance and reduce public sector burdens.
+                    </p>
+                    <p style="color: #000000;">
+                        The 1992 Policy Paper initiated significant privatization efforts, leading to improved infrastructure and economic growth.
+                    </p>
+                    <p style="color: #000000;">
+                        Today, privatization continues to drive Kenya’s development by fostering a competitive, market-driven economy.
+                    </p>
+                    <a class="btn" href="#service" style="background-color: #E42130;color:#ffffff;">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+
+<style>
+    .service-section {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        padding: 20px;
+        width: 100%;
+        height: 80vh; /* Adjust height for larger screens */
+    }
+    
+    .service-image {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .view-profile-btn {
+        background-color: #E42130;
+        color: #ffffff;
+        border: none;
+        padding: 2.5px 5px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    
+    @media (max-width: 576px) {
+        .service-section {
+            height: 60vh; /* Adjust height for smaller screens */
+        }
+    }
+
+     /* Popup Styles */
+     .popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 110%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+    }
+
+    .popup-content {
+        background-color: #ffffff;
+        max-width: 1300px;
+        margin: 100px auto;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .close-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+        color: #777;
+        font-size: 20px;
+        transition: color 0.3s;
+    }
+
+    .close-btn:hover {
+        color: #333;
+    }
+</style>
+
+
+            
+          
+<style>
+    body {
+        
+        background-color: #f5f5f5;
+        margin: 0;
+        padding: 0;
+    }
+
+    .team {
+        padding: 50px 0;
+    }
+
+    .section-header {
+        margin-bottom: 50px;
+    }
+
+    .section-header p {
+        margin: 0;
+        font-size: 24px;
+        color: #24702A;
+    }
+
+    .section-header h2 {
+        margin: 10px 0;
+        font-size: 32px;
+    }
+
+    .team-item {
+        text-align: center;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+
+    .team-img {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        border-radius: 50%;
+        overflow: hidden;
+        position: relative;
+        border: 5px solid #24702A;
+    }
+
+    .team-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .team-text {
+        margin-top: 15px;
+    }
+
+    .team-text h2 {
+        font-size: 20px;
+        color: #ffffff;
+    }
+
+    .team-text p {
+        font-size: 16px;
+        color: #ffffff;
+    }
+
+    .view-profile-btn {
+        background-color: #E42130;
+        color: #ffffff;
+        border: none;
+        padding: 2.5px 5px;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .view-profile-btn:hover {
+        background-color: #d1182b;
+    }
+
+    .team-social {
+        margin-top: 15px;
+    }
+
+    .team-social a {
+        margin: 0 5px;
+        color: #666;
+        font-size: 20px;
+        text-decoration: none;
+    }
+
+    .team-social a:hover {
+        color: #24702A;
+    }
+
+    @media (max-width: 768px) {
+        .team-item {
+            padding: 20px;
+            margin-bottom: 20px;
+
+        }
+
+        .team-img {
+            width: 120px;
+            height: 120px;
+            
+        }
+    }
+
+    @media (max-width: 576px) {
+        .team-item {
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .team-img {
+            width: 100px;
+            height: 100px;
+        }
+    }
+    .news-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.news-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+.news-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.news-content {
+    margin-bottom: 10px;
+}
+
+.news-title a {
+    font-weight: bold;
+    color: #24702A;
+    text-decoration: none;
+}
+
+/* Flexbox alignment for recent activities */
+.row.justify-content-center {
+    display: flex;
+    justify-content: center;
+}
+
+.row.justify-content-start {
+    display: flex;
+    justify-content: space-between;
+}
+
+.row.justify-content-end {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Adjustments for different numbers of items */
+.one-item .col-md-4 {
+    max-width: 100%;
+}
+
+.two-items .col-md-4 {
+    max-width: 48%;
+}
+
+</style>
+
+
+
+
+            
+<!-- FAQs Start -->
+<div class="faqs">
+    <div class="container">
+        <div class="section-header text-center">
+            <p style="color: #24702A;">Frequently Asked Questions</p>
+            <h2>You May Ask</h2>
+        </div>
+    
+        <div class="row">
+            <div class="col-md-6">
+                <div id="accordion-1">
+                    <div class="card wow fadeInLeft" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseOne"> What is Privatization? </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body" style="color: #000000;">
+                                Privatization is a transaction that results in the transfer, other than to a public entity, of the assets and/or liabilities of a public entity, including the shares in a public entity.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTwo"> What is the mandate of the Privatization Commission? </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body"style="color: #000000;">
+                                The Privatization Commission is a corporate body established under Section 3 of the Privatization Act (2005) to formulate, manage and implement the Privatization Programme.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseThree"> What is a Privatization Programme? </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body" style="color: #000000;">
+                                The Privatization Programme is a list of public sector assets and operations approved by the Cabinet to be considered for privatization and subsequently privatized once the approval process is completed.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour"> What are the Benefits of privatization? </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body" style="color: #000000;">
+                                The desired benefits from privatization are listed under Section 18 (1) of the Privatization Act 2005. They include but are not limited to the following:
+                                <li>Improvement of infrastructure and the delivery of public services by the involvement of private capital and expertis</li>
+                                <li>Reduction of the demand for government resources</li>
+                                <li>
+                                    Generation of additional government revenues by receiving compensation for privatizations
+                                </li>
+                                <li>
+                                    Improvement of the regulation of the economy by reducing conflicts between the public sector's regulatory and commercial functions
+                                </li>
+                                <li>
+                                    Improvement of the efficiency of the Kenyan economy by making it more responsive to market forces
+                                </li>
+                                <li>
+                                    Broadening of the base of ownership in the Kenyan economy
+                                </li>
+                                <li>Enhancement and development of the capital markets. </li>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.5s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive"> How is the Privatization Programme formulated? </a>
+                        </div>
+                        <div id="collapseFive" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body"style="color: #000000;">
+                                The National Treasury and Economic Planning Cabinet Secretary formulates the programme through consultation with affected parties, submits it to the Cabinet for approval, and then forwards it to the National Assembly for ratification. Once ratified, it is published in the Kenya Gazette.
+                            </div>
+                        </div>
+                    </div>
+                    {% for faq in dynamic_accordion1 %}
+<div class="card wow fadeInLeft">
+    <div class="card-header">
+        <a class="card-link collapsed" data-toggle="collapse" href="#dynamicCollapse{{ forloop.counter0 }}-1">
+            {{ faq.question }}
+        </a>
+    </div>
+    <div id="dynamicCollapse{{ forloop.counter0 }}-1" class="collapse" data-parent="#accordion-1">
+        <div class="card-body" style="color: #000000;">
+            {{ faq.answer }}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+                    
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="accordion-2">
+                    <div class="card wow fadeInRight" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseSeven"> Who implements the Privatization Programme? </a>
+                        </div>
+                        <div id="collapseSeven" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body"style="color: #000000;">
+                                The Privatization Commission implements the programme in accordance with the Privatization Act, 2005.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseEight"> How is the Privatization Programme implemented? </a>
+                        </div>
+                        <div id="collapseEight" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body" style="color: #000000;">
+                                Implementation involves assessing the entity's position, developing a proposal for Cabinet approval, conducting a business evaluation to determine the reserve price, and privatizing the entity using the approved method.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseNine"> Where do the proceeds of privatization go? </a>
+                        </div>
+                        <div id="collapseNine" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body"style="color: #000000;">
+                                Proceeds from privatization are paid into the Consolidated Fund.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTen"> Who can participate in privatization? </a>
+                        </div>
+                        <div id="collapseTen" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body"style="color: #000000;">
+                                Any person, whether Kenyan or non-Kenyan, can participate. However, the Cabinet Secretary, National Treasury and Economic Planning, may limit participation to Kenyans only.
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <div class="card wow fadeInRight" data-wow-delay="0.6s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTwelve"> Where are the Privatization Commission offices located? </a>
+                        </div>
+                        <div id="collapseTwelve" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body"style="color: #000000;">
+                                The offices are located on the 10th Floor of Social Security House – Annex, Bishops Road, Off Ngong’ Road, Nairobi. Contact details: P.O. Box 34542 - 00100, NAIROBI, Telephone: 020 8696800, Website: www.privatisation.go.ke, Email: info@privatisation.go.ke, Social Media: Facebook, Instagram, LinkedIn, and X (Twitter) @PrivatisationKE.
+                            </div>
+                        </div>
+                    </div>
+                    {% for faq in dynamic_accordion2 %}
+<div class="card wow fadeInRight">
+    <div class="card-header">
+        <a class="card-link collapsed" data-toggle="collapse" href="#dynamicCollapse{{ forloop.counter0 }}-2">
+            {{ faq.question }}
+        </a>
+    </div>
+    <div id="dynamicCollapse{{ forloop.counter0 }}-2" class="collapse" data-parent="#accordion-2">
+        <div class="card-body" style="color: #000000;">
+            {{ faq.answer }}
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> <!-- FAQs End -->
+
+<div class="blog" id="project">
+  <div class="container">
+    <div class="section-header text-center">
+      <p style="color: #24702A;">Recent Activities</p>
+      <h2>Latest from Privatization Commission</h2>
+    </div>
+
+    <div class="row">
+      {% for activity in activities %}
+      <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ forloop.counter }}s">
+        <div class="blog-item">
+          <div class="blog-img">
+            <img src="{% if activity.image %}{{ activity.image.url }}{% else %}{% static 'img/default-news-image.png' %}{% endif %}" alt="{{ activity.title }}" style="width: 100%; height: auto; border-radius: 5px;">
+          </div>
+          <div class="blog-title">
+            <h3 style="color: white;">
+              {{ activity.title }}
+            </h3>
+          </div>
+          <div class="blog-text">
+            <p>
+              {{ activity.text|truncatechars:500 }}
+            </p>
+            {% if activity.link_url %}
+            <a href="{{ activity.link_url }}" target="_blank" style="color: #24702A; text-decoration: underline;">Click to View</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+<!-- Recent Activities Start -->
+<div class="blog" id="project">
+    <div class="container">
+        <div class="section-header text-center">
+            <a href="/news" style="display: inline-block;font-size: large;color: black;">Click to view all news</a>
+           
+        </div>
+        
+
+            
+          
+        </div>
+       
+        <!-- Second Row of 3 Activities -->
+        
+            
+          
+
+        </div>
+    </div>
+</div>
+<!-- Recent Activities End -->
+<!-- JavaScript Section -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.title-text').forEach(title => {
+            let words = title.textContent.split(' ');
+            if (words.length > 3) {
+                // Rebuild the text content with a span after the third word
+                let firstPart = words.slice(0, 3).join(' ');
+                let secondPart = words.slice(3).join(' ');
+    
+                title.innerHTML = `${firstPart} <span class="more-text" style="display: none;">${secondPart}</span>`;
+            }
+        });
+    
+        document.querySelectorAll('.toggle-title').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const moreText = this.previousElementSibling.querySelector('.more-text');
+                if (moreText) {
+                    moreText.style.display = moreText.style.display === 'inline' ? 'none' : 'inline';
+                    this.textContent = this.textContent === '+' ? '-' : '+';
+                }
+            });
+        });
+    });
+    </script>
+    
+
+<!-- CSS Section -->
+<style>
+.blog-title h3 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.more-text {
+    white-space: normal;
+}
+
+.blog-item {
+    margin-bottom: 20px;
+}
+</style>
+
+
+<!-- Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 id="popup-name" style="color: #000000;"></h2>
+        <p id="popup-role" style="color: #000000;"></p>
+        <p id="popup-info" style="color: #000000;"></p>
+    </div>
+</div>
+
+  <!-- JavaScript -->
+  <script>
+    const members = [
+    {
+        name: "DR. JOSEPH KOSKEY",
+        role: "Managing Director/CEO",
+        info: "Joseph holds a PhD in Business Administration, MBA (Strategic Management) and Bachelor of Commerce (Accounting) degrees from the University of Nairobi. He is a Certified Public Accountant, Certified Investment and Financial Analyst. He is a member of ICPAK, the Institute of Certified Secretaries of Kenya and the Institute of Directors Kenya. He is also a certified trainer on corporate governance. Joseph has over 26 years business management experience gained in diverse industries, 19 years of which have been in senior leadership and management positions. He has a distinguished leadership career with a proven track-record of achievements (both in the private and public sectors) in revenue growth, productivity improvement, operational excellence and bottom-line turnaround. He is respected for a strong work-ethic and irreproachable integrity. Prior to his appointment, Joseph had served as the Group CEO at Sovereign Group Ltd, Managing Director at the Kenya Bureau of Standards and as Managing Director at Urgent Cargo Handling Ltd among others. He has also served as the Regional Change Manager for P&O Nedlloyd East Africa and Indian Ocean Islands covering Kenya, Uganda, Tanzania, Mauritius, Madagascar & Seychelles. This background equipped him with invaluable skills and expertise in strategic and financial management, business restructuring and change management."
+        
+    },
+        {
+            name: "MS. DONNA ATIENO",
+            role: "DIRECTOR, CORPORATE SERVICES.",
+            info: "Ms. Donna holds a Master of Science in Development Finance from Strathmore University and a Master of Business Administration (Finance) from Kenya Methodist University. She also graduated from Moi University with a Bachelor of Business Management (Accounting) degree and is a Certified Public Accountant of Kenya (CPA-K) registered with the Institute of Certified Public Accountants of Kenya (ICPAK). She is also a Certified Retirement Benefits Trustee. Donna has over 15 years of experience in Public Service, more than half of which have been in a senior management role. She is a strategic leader with vast experience in public financial management; public sector financial reporting; project appraisal, profiling, and risk analysis; government policies and guidelines in human resource management and administration; and pension administration."
+        
+        },
+        {
+            name: "DR. BERNARD KIRUI",
+            role: "Director, Transactions Services",
+            info: "Dr. Bernard Kirui holds a PhD in Economics from the University of Nairobi, a Master’s degree in Economics, and a Bachelor’s in Economics and Statistics from Kenyatta University. He is a Certified Public Accountant and a member of the Institute of Certified Public Accountants of Kenya (ICPAK). Prior to joining the Authority, Dr. Kirui held various management roles at the Kenya Revenue Authority as Manager in charge of Surveys and Business Analysis and as a Manager in charge of Strategy and Policy Analysis. He was responsible for coordinating the preparation of key tax policy documents, overseeing financial analysis, providing technical support, monitoring tax policy developments and stakeholder engagement. Prior to joining the KRA, Dr. Kirui worked as a Part-Time Lecturer at the National Youth Service and in various roles at the Co-operative Bank of Kenya. He also worked as a Part-Time Lecturer for International Trade and Economics at Moi University, Nairobi Campus. Dr. Kirui was also a CSAE Visiting Fellow at the University of Oxford in the United Kingdom, where he worked on his research."
+        },
+        
+        {
+            name: "MS. IRENE KAMUNGE",
+            role: "",
+            info: ""
+        },
+        {
+            name: "MR.SYLVESTER KAMAU",
+            role: "Alternate To The Attorney-General",
+            info: "Sylvester holds a Master of Science (MSc) degree in Procurement and Logistics from the Jomo Kenyatta University of Agriculture and Technology and a CIPS post-graduate professional diploma in Procurement and Supply. He also holds a Bachelor of Arts degree in Government and Public Administration from Moi University. He is a registered and licensed member of the Kenya Institute of Supplies Management. Sylvester has over 20 years’ experience in Supply Chain Management, having worked for various organizations in different capacities. He also has vast knowledge in public procurement. Currently, Sylvester is pursuing his Doctor of Philosophy degree in Supply Chain Management from the Jomo Kenyatta University of Agriculture and Technology and is working on his dissertation after successfully completing the coursework."
+        },
+        {
+            name: "MR. CLIVE KINOTI NJIRU",
+            role: "Manager, Internal Audit",
+            info: "Clive holds a Master of Commerce in Finance from Strathmore University and a Bachelor of Arts in Economics and Business Studies from Kenyatta University. He is a member of the Institute of Certified Public Accountants of Kenya (ICPAK), Institute of Internal Auditors (IIA), and Institute of Certified Investment and Financial Analysts (CIFA). He has over fifteen (15) years of experience in Governance, Risk Management, and Compliance. Before joining the Authority, Clive held several Senior Management positions at East African Portland Cement Plc and the Ministry of Co-operatives and Micro, Small and Medium Enterprises (MSME) Development."
+        },
+        {
+            name: "MS. JEMIMAH MURAYA",
+            role: "Manager, Research & Planning",
+            info: "Ms. Jemimah Muraya is a statistician by profession who holds a Master of Science (MSc) degree in Social Statistics from the University of Nairobi. She has a Bachelor of Science degree in Applied Statistics from Maseno University and is currently pursuing a Master of Business Administration degree (Strategic Management) in USIU-A. Prior to joining the Authority, Ms. Jemimah held various management roles including Manager Research, Strategy and Planning at Tana Water Works Development Agency and Research and Policy Manager at the NGOs Co-ordination Board. She has vast experience in Research, Data Management, Strategic Planning, Performance Management, Quality Management Systems, Monitoring, and Evaluation drawn from over 14 years of experience with several public sector organizations."
+        },
+        {
+            name: "DR. EDWARD N. KOBUTHI",
+            role: "Board Member",
+            info: "Edward has a Food Process Engineering background and is a Brewmaster from VLB, Faculty of Brewing and Distillation of the Technical University Berlin, Germany. He holds a PhD in Corporate Governance an MBA in Strategic Management, a B.Sc in Marketing and Finance and the Diploma Master Brewer from the Institute of Brewing, London. He has served as CEO at AMREF’s Lomidat Meat Processors, General Manager at Kenya Airways, and General Manager at Kenya Airports Authority. He served as Project Manager, Supply Chain Manager, Bottling Manager and Distribution Manager at East African Breweries Limited. He sits on the Water Services Regulatory Board in addition to the boards of several schools."
+        },
+        {
+            name: "CELINE ANYANGO ORATA",
+            role: "Board Member",
+            info: "Celine has a Bachelor of Arts degree in Business Administration from the University of Zambia and is an accomplished banker, company director, board member and professional mediator, experienced in building company infrastructure from the ground-up, spearheading strategy planning and development, operational and business excellence, and compliance with various trainings in Banking, Finance, Credit and Risk Management. She has wide banking experience spanning over 27 years both locally and internationally and over 6 years in board membership in Kenya Women Finance Trust; currently Kenya Women Microfinance Bank; as well as a Treasurer and Board Member of the Kenya Girl Guides Association for a period of 6 years. She is the current chairperson of the Barclays Bank Pensions SACCO and a Director at Suave Investments Limited. She has also been involved in community engagements which involves coaching, mentoring, advocacy, health promotions; and women and youth empowerment."
+        },
+        {
+            name: "IRENE NJERI WANYOIKE",
+            role: "Commission Member",
+            info: "Irene is a seasoned and passionate professional with a career spanning over 15 years in alternative dispute resolution mechanisms with an emphasis on Mediation, Law and Governance. She has a Master’s degree in Diplomacy and Foreign Policy from Moi University, a Post Graduate diploma in Law from the Kenya School of Law and a Bachelors of Law from the University of Nairobi. In her vast experience working with the Judiciary, National Cohesion and Integration Commission and the Association of Professional Societies in East Africa, Irene has interacted extensively with the three Arms of Government, Security, Provincial Administration, county governments and the local grassroots leadership, which has enlarged her networks and given her a rich understanding of the public sector. Irene is also knowledgeable in the field of Public Sector Reforms, Governance, Human Rights, and is very passionate about issues of Women and Youth Empowerment."
+        },
+       
+    ];
+
+    function openPopup(index) {
+        const member = members[index];
+        document.getElementById('popup-name').innerText = member.name;
+        document.getElementById('popup-role').innerText = member.role;
+        document.getElementById('popup-info').innerText = member.info;
+        document.getElementById('popup').style.display = 'flex';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+
+<!-- Footer Start -->
+<!-- Footer Start -->
+<div class="footer wow fadeIn" data-wow-delay="0.3s">
+    {% include "footer.html" %}
+    
+</div>
+<!-- Footer End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/slick/slick.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+    </body>
+</html>

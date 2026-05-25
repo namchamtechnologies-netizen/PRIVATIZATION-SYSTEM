@@ -1,0 +1,114 @@
+
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow sticky-top" style="height: 85px;">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="{% url 'index' %}">
+            <img src="{% static 'img/logoz.png' %}" alt="Privatization Commission Logo" class="logo" style="height: 80px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'index' %}" style="color: #000000;">HOME</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="whoWeAreDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000000;">
+                        WHO WE ARE <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="whoWeAreDropdown">
+                        <li><a class="dropdown-item" href="{% url 'mandate' %}">Mandate</a></li>
+                        <li><a class="dropdown-item" href="{% url 'board' %}">Board Management</a></li>
+                        <li><a class="dropdown-item" href="{% url 'management' %}">Management Team</a></li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="galleryDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Service Charter
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="galleryDropdown">
+                                <li><a class="dropdown-item" href="https://drive.google.com/file/d/1UZEXSDo6qIpq107EMA13ZGbo5NZDMzM6/view?usp=sharing">Swahili Version</a></li>
+                                <li><a class="dropdown-item" href="https://drive.google.com/file/d/11pa5mmVY3QxOHb7QF7WECbN4dZg99C7b/view?usp=sharing">English Version</a></li>
+                                <li><a class="dropdown-item" href="https://drive.google.com/file/d/1DAFcaTj-stsAMYSB3VYVJ7k1PNa4BxUr/view?usp=drive_link">Service Charter Video</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-item" href="https://drive.google.com/file/d/1EOBS3xl5UxZLyIWLviWa-S8sn0500ymv/view?usp=sharing" target="_blank">Strategic Plan</a></li>
+                        <li><a class="dropdown-item" href="https://drive.google.com/file/d/1GjnGyU_n1X4vor7ydwk35rgkmI1ecfdV/view?usp=sharing" target="_blank">Quality Policy Statement</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="privatisationDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000000;">
+                        PRIVATIZATION <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="privatisationDropdown">
+                        <li><a class="dropdown-item" href="{% url 'success' %}">Success Stories</a></li>
+                        <li><a class="dropdown-item" href="{% url 'privatisation' %}">Privatization Programme</a></li>
+                        <li><a class="dropdown-item" href="{% url 'entreprise' %}">Public Enterprises Reform</a></li>
+                        <li><a class="dropdown-item" href="{% url 'completed' %}">Completed Privatizations</a></li>
+                        <li><a class="dropdown-item" href="{% url 'act' %}">Privatization Act</a></li>
+
+                        <li><a class="dropdown-item" href="{% url 'benefits' %}">Benefits Of Privatization</a></li>
+                        <li><a class="dropdown-item" href="{% url 'status' %}">Privatization Programme Status</a></li>
+                        <li><a class="dropdown-item" href="{% url 'research' %}">Research</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="opportunitiesDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000000;">
+                        OPPORTUNITIES <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="opportunitiesDropdown">
+                             <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="tendersDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Careers
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="tendersDropdown">
+                                <li><a class="dropdown-item" href="{% url 'vacancies' %}">Vacancies</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="tendersDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Tenders
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="tendersDropdown">
+                                <li><a class="dropdown-item" href="{% url 'tenders' %}">Tenders</a></li>
+                                <li><a class="dropdown-item" href="{% url 'portal' %}">E-Procurement Portal</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown-submenu">
+                            <a class="dropdown-item dropdown-toggle" href="#" id="tendersDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Investments
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="tendersDropdown">
+                                <li><a class="dropdown-item" href="{% url 'tenders' %}">Transactions Teaser</a></li>
+                                <li><a class="dropdown-item" href="{% url 'expressions' %}">Expressions Of interest (EOI)</a></li>
+                                <li><a class="dropdown-item" href="{% url 'proposal' %}">Request For Proposal (RFP)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="informationCentreDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #000000;">
+                        INFORMATION CENTRE <i class="fas fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="informationCentreDropdown">
+                        <li><a class="dropdown-item" href="{% url 'news' %}">Our News</a></li>
+                        <!--<li><a class="dropdown-item" href="https://drive.google.com/file/d/1mrKbS-S6eNF1tN8sVIxj9gn_d39RExDY/view?usp=sharing">Frequently Asked Questions</a></li>-->
+                        <li><a class="dropdown-item" href="{% url 'access' %}">Access To Information Center</a></li>
+                       
+                        
+
+
+                        <li><a class="dropdown-item" href="{% url 'images' %}">Gallery</a></li>
+                        <li><a class="dropdown-item" href="{% url 'videos' %}">Videos</a></li>
+                        <li><a class="dropdown-item" href="{% url 'downloads' %}">Downloads</a></li>
+
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'contact' %}" style="color: #000000;">CONTACT US</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

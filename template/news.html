@@ -1,0 +1,591 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>The Privatisation Authority</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Privatisation Authority Website" name="keywords">
+    <meta content="Privatisation Authority Website" name="description">
+
+    <!-- Favicon -->
+    <link href="{% static 'img/icon.png' %}" rel="icon">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="{% static 'lib/flaticon/font/flaticon.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/lightbox/css/lightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/slick/slick-theme.css' %}" rel="stylesheet">
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+</head>
+
+<body>
+    {% include "navbar.html" %}
+<style>
+    /* Custom dropdown submenu styling */
+    .dropdown-submenu {
+        position: relative;
+        
+    }
+
+    .dropdown-submenu .dropdown-menu {
+        top: 0;
+        left: 100%;
+        margin-top: -1px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        display: none;
+        position: absolute;
+        background-color: #24702A; /* Same as other dropdowns */
+        border: 1px solid rgba(0, 0, 0, 0.15);
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.175);
+    }
+
+    .dropdown-submenu:hover .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+        
+    }
+
+    .dropdown-menu .dropdown-item {
+        color: #000; /* Same as other dropdown items */
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        display: block;
+        clear: both;
+        font-weight: 400;
+        line-height: 1.5;
+        white-space: nowrap;
+        background: 0 0;
+        border: 0;
+    }
+
+    .dropdown-menu .dropdown-item:hover, 
+    .dropdown-menu .dropdown-item:focus {
+        color: #16181b;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.075);
+    }
+
+    .navbar-nav .dropdown:hover > .dropdown-menu {
+        display: block;
+        background-color: #24702A;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item {
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-menu .dropdown-item:hover {
+        background-color: #000000;
+        color: #ffffff;
+    }
+
+    .navbar-nav .dropdown-toggle::after {
+        content: none;
+    }
+
+    .nav-link {
+        position: relative;
+    }
+
+    .nav-link .fas {
+        margin-left: 5px;
+    }
+
+    .nav-item.dropdown:hover .nav-link {
+        color: #ffffff;
+        background-color: #24702A;
+    }
+
+
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+
+    /* Styles for laptops (typically between 1024px and 1440px wide) */
+@media (min-width: 1024px) and (max-width: 1440px) {
+    /* Add your styles here */
+    .navbar-brand .logo {
+        height: 120px;
+        margin-right: 10px;
+        margin-top: -5px;
+    }
+}
+
+
+    @media (max-width: 991.98px) {
+        .navbar-collapse {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .navbar-brand .logo {
+            height: 120px;
+            margin-right: 10px;
+            margin-top: -35px;
+        }
+
+        .navbar-collapse.show {
+            display: block;
+        }
+
+        .navbar-nav {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .navbar-nav .nav-link {
+            margin: 10px 0;
+            text-align: left;
+        }
+    }
+
+    @media (max-width: 767.98px) {
+        .navbar-brand .logo {
+            height: 80px; /* Adjust logo height for small screens */
+            margin-top: -10px;
+        }
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+
+        navbarToggler.addEventListener('click', function () {
+            navbarCollapse.classList.toggle('show');
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        // Handle hover for dropdown-submenu
+        document.querySelectorAll('.dropdown-submenu').forEach(function (element) {
+            element.addEventListener('mouseover', function () {
+                this.querySelector('.dropdown-menu').style.display = 'block';
+            });
+            element.addEventListener('mouseout', function () {
+                this.querySelector('.dropdown-menu').style.display = 'none';
+            });
+        });
+    });
+</script>
+
+<!-- Make sure to include Font Awesome for the dropdown icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+        
+
+<style>
+    .news-container1 {
+        width: 90%;
+        margin: 0 auto;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin-top: 30px;
+    }
+    .news-header {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 24px;
+        font-weight: bold;
+        border-bottom: 2px solid black;
+        padding-bottom: 10px;
+    }
+    .news-item {
+        width: 30%;
+        margin-bottom: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        position: relative; /* Added this to make .news-date positioning work */
+    }
+    .news-item img {
+        width: 100%;
+        height: auto;
+    }
+    .news-date {
+        background-color: #28a745;
+        color: white;
+        padding: 5px 10px;
+        position: absolute;
+        top: 10px;
+        left: 10px;
+    }
+    .news-title {
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+    }
+    .news-title a {
+        color: #000000;
+        text-decoration: underline;
+    }
+    .news-title a:hover {
+        text-decoration: underline;
+    }
+</style>
+<div class="accessibility-icon" onclick="toggleAccessibilityMenu()">
+    <img src="{% static 'img/disable.jpeg' %}" alt="Accessibility Icon">
+
+</div>
+
+<div class="accessibility-menu" id="accessibilityMenu">
+    <button onclick="increaseTextSize()"><i class="fas fa-search-plus"></i> Increase Text Size</button>
+    <button onclick="decreaseTextSize()"><i class="fas fa-search-minus"></i> Decrease Text Size</button>
+    <button onclick="grayscale()"><i class="fas fa-adjust"></i> Grayscale</button>
+    <button onclick="highContrast()"><i class="fas fa-highlighter"></i> High Contrast</button>
+    <button onclick="negativeContrast()"><i class="fas fa-low-vision"></i> Negative Contrast</button>
+    <button onclick="lightBackground()"><i class="fas fa-lightbulb"></i> Light Background</button>
+    <button onclick="underlineLinks()"><i class="fas fa-underline"></i> Underline Links</button>
+    <button onclick="readableFont()"><i class="fas fa-font"></i> Readable Font</button>
+    <button onclick="resetSettings()"><i class="fas fa-undo"></i> Reset</button>
+</div>
+
+<script>
+    let initialFontSizes = [];
+
+    function storeInitialFontSizes() {
+        initialFontSizes = [];
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            initialFontSizes.push({element: el, size: window.getComputedStyle(el).fontSize});
+        });
+    }
+
+    function applyInitialFontSizes() {
+        initialFontSizes.forEach(item => {
+            item.element.style.fontSize = item.size;
+        });
+    }
+
+    function toggleAccessibilityMenu() {
+        var menu = document.getElementById('accessibilityMenu');
+        var icon = document.querySelector('.accessibility-icon');
+        var screenWidth = window.innerWidth;
+
+        if (menu.style.display === 'block') {
+            menu.style.display = 'none';
+            icon.style.right = '2px';
+        } else {
+            menu.style.display = 'block';
+            if (screenWidth <= 768) {
+                icon.style.right = '165px'; // Adjust for smaller screens
+            } else {
+                icon.style.right = '230px'; // Default adjustment
+            }
+        }
+    }
+
+    function increaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size + 2) + 'px';
+        });
+    }
+
+    function decreaseTextSize() {
+        var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+        allElements.forEach(el => {
+            var size = parseInt(window.getComputedStyle(el).fontSize);
+            el.style.fontSize = (size - 2) + 'px';
+        });
+    }
+
+    function grayscale() {
+        document.body.style.filter = 'grayscale(100%)';
+    }
+
+    function highContrast() {
+        document.body.style.filter = 'contrast(200%)';
+    }
+
+    function negativeContrast() {
+        document.body.style.filter = 'invert(100%)';
+    }
+
+    function lightBackground() {
+        document.body.style.backgroundColor = '#ffffff';
+        document.body.style.color = '#000000';
+    }
+
+    function underlineLinks() {
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'underline';
+        }
+    }
+
+    function readableFont() {
+        document.body.style.fontFamily = 'Arial, sans-serif';
+    }
+
+    function resetSettings() {
+        document.body.style.filter = 'none';
+        document.body.style.backgroundColor = '';
+        document.body.style.color = '';
+        applyInitialFontSizes();
+        var links = document.getElementsByTagName('a');
+        for (var i = 0; i < links.length; i++) {
+            links[i].style.textDecoration = 'none';
+        }
+        document.body.style.fontFamily = '';
+    }
+
+    // Store initial font sizes on page load
+    window.onload = storeInitialFontSizes;
+</script>
+<style>
+    .accessibility-icon {
+        position: fixed;
+        top: 100px;
+        right: 2px;
+        background-color: #000;
+        border: 2px solid #24702A;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        z-index: 1000;
+        transition: right 0.3s;
+    }
+
+    .accessibility-icon img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .accessibility-menu {
+        display: none;
+        position: fixed;
+        top: 160px;
+        right: 20px;
+        background-color: #fff;
+        border: 1px solid #000;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10px;
+        z-index: 1000;
+        width: 200px;
+    }
+
+    .accessibility-menu button {
+        display: flex;
+        align-items: center;
+        margin: 5px 0;
+        padding: 10px;
+        background-color: #f0f0f0;
+        border: 1px solid #ccc;
+        cursor: pointer;
+        border-radius: 3px;
+        font-size: 15px;
+    }
+
+    .accessibility-menu button:hover {
+        background-color: #e0e0e0;
+    }
+
+    .accessibility-menu i {
+        margin-right: 10px;
+    }
+    @media (max-width: 768px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 10px;
+        }
+
+        .accessibility-menu {
+            top: 120px;
+            right: 10px;
+            width: 150px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .accessibility-icon {
+            top: 100px;
+            right: 5px;
+            padding: 8px;
+        }
+
+        .accessibility-icon img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .accessibility-menu {
+            top: 110px;
+            right: 5px;
+            width: 160px;
+        }
+
+        .accessibility-menu button {
+            font-size: 10px;
+            padding: 7px;
+        }
+    }
+</style>
+
+
+<!-- Header Code Here -->
+
+<div class="news-container1">
+<div class="news-header" style="color: #000000;">OUR NEWS</div>
+{% for news in news %}
+        <div class="news-item">
+            <img src="{% if news.image %}{{ news.image.url }}{% else %}{% static 'img/default-news-image.png' %}{% endif %}" alt="{{ news.title }}">
+            <div class="news-date">{{ news.date_today|date:"F j, Y" }}</div>
+            <div class="news-content">
+                {{ news.text }}
+            </div>
+            <div class="news-title">
+                <a href="#">{{ news.title }}</a>
+            </div>
+        </div>
+    {% endfor %}
+
+   
+
+
+<div class="news-item">
+    <img src="{% static 'img/Coat2.jpg' %}" alt="News Image 1">
+    <div class="news-date">September  1, 2024</div>
+    <div class="news-content">
+       The National Treasury & Economic Planning is in the process of recruiting members of the Board of the Privatization Commission. Pursuant to Section 10(1)(f) of the Privatization Act, 2023, the Cabinet Secretary for the National Treasury & Economic Planning invites applications from suitably qualified persons for the positions of members of the Board of Privatization Commission.
+    </div>
+    <div class="news-title"><a href="https://drive.google.com/file/d/1GWVYz1fkqubXLkrcm721ItMmStXl7aPV/view">Declaration of Vacancies for Members of the Board of the Privatization Commission</a></div>
+</div>
+
+<div class="news-item">
+    <img src="{% static 'img/kwal.jpeg' %}" alt="News Image 1">
+    <div class="news-date">August  1, 2024</div>
+    <div class="news-content">
+      The Government of Kenya (GOK), through the Privatization Commission, has invited prospective investors to submit bids for the acquisition of GOK shareholdings of KWAL Holdings (E.A) Limited (KHEAL) and Kenya Wine Agency Limited (KWAL) by 26th August 2024. GOK shareholdings of KHEAL and KWAL comprise 43.77% and 0.0000125% respectively.
+    </div>
+    <div class="news-title"><a href="https://drive.google.com/file/d/1BBUxXHpltCLfKYgToqBne8V3xyFm4zHI/view">Acquisition of Government Shareholding in KHAEL and KWAL</a></div>
+</div>
+
+<div class="news-item">
+    <img src="{% static 'img/KHPL-EOI-Photo-360x230.png' %}" alt="News Image 1">
+    <div class="news-date">March 31, 2024</div>
+    <div class="news-content">
+        The Government of Kenya, through the Privatisation Authority has invited prospective investors interested in the acquisition of 33.83% of Government shareholding in Kenya Hotel Properties Limited (KHPL), to submit their Expressions of Interest by 18th April 2024.
+        KHPL was incorporated in Kenya in 1966 and owns the property, which was previously managed by the Intercontinental Hotel Group. The property is located within Nairobi Central Business District, adjacent to the National Parliament building.
+    </div>
+    <div class="news-title"><a href="#">ACQUISITION OF GOVERNMENT SHAREHOLDING IN KENYA HOTEL PROPERTIES LIMITED</a></div>
+</div>
+
+
+
+<!-- News Item 3 -->
+<div class="news-item">
+    <img src="{% static 'img/Optimized-20230630_101319-360x230.jpg' %}" alt="News Image 3">
+    <div class="news-date">August 1, 2023</div>
+    <div class="news-content">
+        Privatisation Authority has donated 17,800 tree seedlings, which were among the trees planted during the 7th Edition of Kaptagat Annual tree planting event, at Kessup Forest in Elgeyo Marakwet.
+        The seedlings were acquired from Kericho Medium Prison, and Ngeria Prison in Eldoret, a move by the Authority to honor a commitment to purchase tree seedlings from Kenya Prisons.
+        During the tree planting exercise in Kaptagat, the Authority was represented by the Board Chairman Mr. Faisal Abbas and the Executive Director Mr. Joseph Koskey, where 32,000 trees were planted.
+        Tree planting is one of the Authority's CSR initiative that contributes to the implementation of the Presidential directive to plant 15 billion trees by 2032. The move will help reduce greenhouse emissions, stop and reverse deforestation, and restore 5.1 million hectares of deforested and degraded landscapes.
+    </div>
+    <div class="news-title"><a href="#">PRIVATISATION AUTHORITY DONATES 17,800 TREE SEEDLINGS</a></div>
+</div>
+
+<div class="news-item">
+    <img src="{% static 'img/donation.jpeg' %}" alt="News Image 6">
+    <div class="news-date">June 28, 2024</div>
+    <div class="news-content">
+        Privatisation Authority has donated over 900 packets of sanitary towels to Imani Rehabilitation Agency in Soweto Kayole. This CSR initiative aims to provide medical health support to vulnerable groups. Project Manager Gillian Njeru highlighted the critical challenge of accessing sanitary pads for many girls in the agency, causing discomfort and embarrassment. Additionally, the Authority's officers donated food, clothes, and toys as personal contributions.
+    </div>
+    <div class="news-title"><a href="https://drive.google.com/file/d/1HeYZtxI-auTVXfmoVyFgK0d8xhrU5d46/view?usp=sharing">SANITARY TOWELS DISTRIBUTION TO IMANI REHABILITATION AGENCY</a></div>
+</div>
+
+<!-- News Item 4 -->
+<div class="news-item">
+    <img src="{% static 'img/Optimized-20230614_101912-360x230.jpg' %}" alt="News Image 4">
+    <div class="news-date">June 9, 2023</div>
+    <div class="news-content">
+        Earlier today, the Executive Director of Privatisation Authority, Mr. Joseph Koskey, paid a courtesy call on the Commissioner General of Prisons, Brig. (rtd) John Warioba at his Magereza House Office.
+        The two discussed possible areas of partnership in environmental conservation and in particular, the development of tree nurseries and production of tree seedlings. Mr. Koskey reaffirmed the Authority's commitment to purchase tree seedlings from Kenya Prisons as part of the implementation of the Authority's CSR initiatives.
+        Brig. Warioba expressed his gratitude to the Authority for this initiative, adding that Kenya Prisons has a huge mandate in environmental conservation that can only be achieved with the support of partners and other like-minded institutions.
+        They also exchanged views on ensuring achievement of the President’s directive which aims at reducing greenhouse emissions, stopping and reversing deforestation and restoring 5.1 million hectares of deforested and degraded landscapes.
+    </div>
+    <div class="news-title"><a href="#">PRIVATISATION AUTHORITY PAYS COURTESY CALL ON PRISONS BOSS</a></div>
+</div>
+
+<!-- News Item 5 -->
+<div class="news-item">
+    <img src="{% static 'img/0001-360x230.jpg' %}" alt="News Image 5">
+    <div class="news-date">April 2, 2023</div>
+    <div class="news-content">
+        The Privatisation Bill, 2023 went through the First Reading at the National Assembly on 6th June 2023 and thereafter was referred to the Departmental Committee for Finance and National Planning.
+        Consequently, in compliance with Article 118(1) of the Constitution and Standing Order 129(3), the Clerk of the National Assembly invites the public to submit memoranda on the Bill by Monday, 26th June 2023 at 5p.m.
+    </div>
+    <div class="news-title"><a href="#">NATIONAL ASSEMBLY COMMENCES PUBLIC PARTICIPATION ON PRIVATISATION BILL</a></div>
+</div>
+<!-- News Item 6 (Cloned) -->
+
+</div>
+
+
+<!-- Footer Start -->
+<!-- Footer Start -->
+<div class="footer wow fadeIn" data-wow-delay="0.3s">
+    {% include "footer.html" %}
+    
+</div>
+<!-- Footer End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+        </div>
+
+        <!-- JavaScript Libraries -->
+        <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/wow/wow.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/lightbox/js/lightbox.min.js' %}"></script>
+<script src="{% static 'lib/waypoints/waypoints.min.js' %}"></script>
+<script src="{% static 'lib/counterup/counterup.min.js' %}"></script>
+<script src="{% static 'lib/slick/slick.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+        <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+    </body>
+</html>

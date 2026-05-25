@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- HTML for Team Section -->
+<div class="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="img/md.jfif" alt="Team Image">
+                    </div>
+                    <div class="team-text">
+                        <h2 style="color: #ffffff;">Dr. Joseph Koskey</h2>
+                        <p>Managing Director</p>
+                        <button class="view-profile-btn" onclick="openPopup(0)">View Profile</button>
+                    </div>
+                    <!-- Social Links -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="img/maddir.png" alt="Team Image">
+                    </div>
+                    <div class="team-text">
+                        <h2 style="color: #ffffff;">Donna Atieno</h2>
+                        <p>Director</p>
+                        <button class="view-profile-btn" onclick="openPopup(1)">View Profile</button>
+                    </div>
+                    <!-- Social Links -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="img/dir1.jfif" alt="Team Image">
+                    </div>
+                    <div class="team-text">
+                        <h2 style="color: #ffffff;">Benard Kirui</h2>
+                        <p>Director</p>
+                        <button class="view-profile-btn" onclick="openPopup(2)">View Profile</button>
+                    </div>
+                    <!-- Social Links -->
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="team-item">
+                    <div class="team-img">
+                        <img src="img/dir2.jfif" alt="Team Image">
+                    </div>
+                    <div class="team-text">
+                        <h2 style="color: #ffffff;">Sylvester Kamau</h2>
+                        <p>Chairman</p>
+                        <button class="view-profile-btn" onclick="openPopup(3)">View Profile</button>
+                    </div>
+                    <!-- Social Links -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- HTML for Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2 id="popup-name"></h2>
+        <p id="popup-role"></p>
+        <p id="popup-info"></p>
+    </div>
+</div>
+
+<!-- JavaScript -->
+<script>
+    const members = [
+        {
+            name: "Dr. Joseph Koskey",
+            role: "Managing Director",
+            info: "Additional information about Dr. Joseph Koskey."
+        },
+        {
+            name: "Donna Atieno",
+            role: "Director",
+            info: "Additional information about Donna Atieno."
+        },
+        {
+            name: "Benard Kirui",
+            role: "Director",
+            info: "Additional information about Benard Kirui."
+        },
+        {
+            name: "Sylvester Kamau",
+            role: "Chairman",
+            info: "Additional information about Sylvester Kamau."
+        }
+    ];
+
+    function openPopup(index) {
+        const member = members[index];
+        document.getElementById('popup-name').innerText = member.name;
+        document.getElementById('popup-role').innerText = member.role;
+        document.getElementById('popup-info').innerText = member.info;
+        document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+        document.getElementById('popup').style.display = 'none';
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Privatisation Authority</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000; /* Ensure the navbar is on top of other elements */
+        }
+        .navbar-brand img {
+            height: 120px; /* Adjust logo height */
+            margin-right: 10px; /* Optional margin for logo */
+        }
+        .navbar-toggler {
+            border: none;
+        }
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+        .navbar-nav .nav-link {
+            color: #333;
+            margin-left: 15px; /* Adjust spacing between nav items */
+        }
+        .login-container {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column; /* Center the login form vertically and horizontally */
+            margin-top: 50px; /* Adjust the margin from the top */
+        }
+        .login-container h2 {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        .login-container .btn-primary {
+            background-color: #24702A;
+            border: none;
+        }
+        .input-group-append {
+            cursor: pointer;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-brand img {
+                height: 50px; /* Adjust logo height for smaller screens */
+                margin-top: -30px; /* Add margin to the top of the logo */
+            }
+        }
+    </style>
+</head>
+<body>
+
+ 
+     
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const navbarToggler = document.querySelector('.navbar-toggler');
+            const navbarCollapse = document.querySelector('.navbar-collapse');
+    
+            navbarToggler.addEventListener('click', function () {
+                navbarCollapse.classList.toggle('show');
+            });
+        });
+    </script>
+    <div class="accessibility-icon" onclick="toggleAccessibilityMenu()">
+        <img src="{% static 'img/disable.jpeg' %}" alt="Accessibility Icon">
+    
+    </div>
+    
+    <div class="accessibility-menu" id="accessibilityMenu">
+        <button onclick="increaseTextSize()"><i class="fas fa-search-plus"></i> Increase Text Size</button>
+        <button onclick="decreaseTextSize()"><i class="fas fa-search-minus"></i> Decrease Text Size</button>
+        <button onclick="grayscale()"><i class="fas fa-adjust"></i> Grayscale</button>
+        <button onclick="highContrast()"><i class="fas fa-highlighter"></i> High Contrast</button>
+        <button onclick="negativeContrast()"><i class="fas fa-low-vision"></i> Negative Contrast</button>
+        <button onclick="lightBackground()"><i class="fas fa-lightbulb"></i> Light Background</button>
+        <button onclick="underlineLinks()"><i class="fas fa-underline"></i> Underline Links</button>
+        <button onclick="readableFont()"><i class="fas fa-font"></i> Readable Font</button>
+        <button onclick="resetSettings()"><i class="fas fa-undo"></i> Reset</button>
+    </div>
+    
+    <script>
+        let initialFontSizes = [];
+    
+        function storeInitialFontSizes() {
+            initialFontSizes = [];
+            var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+            allElements.forEach(el => {
+                initialFontSizes.push({element: el, size: window.getComputedStyle(el).fontSize});
+            });
+        }
+    
+        function applyInitialFontSizes() {
+            initialFontSizes.forEach(item => {
+                item.element.style.fontSize = item.size;
+            });
+        }
+    
+        function toggleAccessibilityMenu() {
+            var menu = document.getElementById('accessibilityMenu');
+            var icon = document.querySelector('.accessibility-icon');
+            var screenWidth = window.innerWidth;
+    
+            if (menu.style.display === 'block') {
+                menu.style.display = 'none';
+                icon.style.right = '2px';
+            } else {
+                menu.style.display = 'block';
+                if (screenWidth <= 768) {
+                    icon.style.right = '165px'; // Adjust for smaller screens
+                } else {
+                    icon.style.right = '230px'; // Default adjustment
+                }
+            }
+        }
+    
+        function increaseTextSize() {
+            var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+            allElements.forEach(el => {
+                var size = parseInt(window.getComputedStyle(el).fontSize);
+                el.style.fontSize = (size + 2) + 'px';
+            });
+        }
+    
+        function decreaseTextSize() {
+            var allElements = document.querySelectorAll('body *:not(.accessibility-menu):not(.accessibility-menu *)');
+            allElements.forEach(el => {
+                var size = parseInt(window.getComputedStyle(el).fontSize);
+                el.style.fontSize = (size - 2) + 'px';
+            });
+        }
+    
+        function grayscale() {
+            document.body.style.filter = 'grayscale(100%)';
+        }
+    
+        function highContrast() {
+            document.body.style.filter = 'contrast(200%)';
+        }
+    
+        function negativeContrast() {
+            document.body.style.filter = 'invert(100%)';
+        }
+    
+        function lightBackground() {
+            document.body.style.backgroundColor = '#ffffff';
+            document.body.style.color = '#000000';
+        }
+    
+        function underlineLinks() {
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                links[i].style.textDecoration = 'underline';
+            }
+        }
+    
+        function readableFont() {
+            document.body.style.fontFamily = 'Arial, sans-serif';
+        }
+    
+        function resetSettings() {
+            document.body.style.filter = 'none';
+            document.body.style.backgroundColor = '';
+            document.body.style.color = '';
+            applyInitialFontSizes();
+            var links = document.getElementsByTagName('a');
+            for (var i = 0; i < links.length; i++) {
+                links[i].style.textDecoration = 'none';
+            }
+            document.body.style.fontFamily = '';
+        }
+    
+        // Store initial font sizes on page load
+        window.onload = storeInitialFontSizes;
+    </script>
+    <style>
+        .accessibility-icon {
+            position: fixed;
+            top: 100px;
+            right: 2px;
+            background-color: #000;
+            border: 2px solid #24702A;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+            transition: right 0.3s;
+        }
+    
+        .accessibility-icon img {
+            width: 50px;
+            height: 50px;
+        }
+    
+        .accessibility-menu {
+            display: none;
+            position: fixed;
+            top: 160px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #000;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            z-index: 1000;
+            width: 200px;
+        }
+    
+        .accessibility-menu button {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 15px;
+        }
+    
+        .accessibility-menu button:hover {
+            background-color: #e0e0e0;
+        }
+    
+        .accessibility-menu i {
+            margin-right: 10px;
+        }
+        @media (max-width: 768px) {
+            .accessibility-icon {
+                top: 100px;
+                right: 10px;
+            }
+    
+            .accessibility-menu {
+                top: 120px;
+                right: 10px;
+                width: 150px;
+            }
+    
+            .accessibility-menu button {
+                font-size: 10px;
+                padding: 8px;
+            }
+    
+            .accessibility-icon img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    
+        @media (max-width: 480px) {
+            .accessibility-icon {
+                top: 100px;
+                right: 5px;
+                padding: 8px;
+            }
+    
+            .accessibility-icon img {
+                width: 30px;
+                height: 30px;
+            }
+    
+            .accessibility-menu {
+                top: 110px;
+                right: 5px;
+                width: 160px;
+            }
+    
+            .accessibility-menu button {
+                font-size: 10px;
+                padding: 7px;
+            }
+        }
+    </style>
+
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="/auth_login/" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <div class="input-group">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Enter email" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <div class="input-group">
+                    <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text toggle-password"><i class="fas fa-eye"></i></span>
+                    </div>
+                </div>
+            </div>
+            <a href="/register/">To create account click here </a>
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.querySelector('.toggle-password').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.querySelector('i').classList.toggle('fa-eye-slash');
+        });
+    </script>
+</body>
+</html>
+
