@@ -21,13 +21,14 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-fallback-key-for-development-only-change-in-production')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = True  # Set to False in production
 
-# Host configurations
+# Host configurations - UPDATED with correct Railway domain
 ALLOWED_HOSTS = [
-    'privatisation-production.up.railway.app',
-     'authority-production.up.railway.app',  
-     'pa-mfalme-production.up.railway.app',
+    'privatization-system-production.up.railway.app',  # ADDED - the correct domain (with 'z')
+    'privatisation-production.up.railway.app',        # Keep existing (with 's')
+    'authority-production.up.railway.app',  
+    'pa-mfalme-production.up.railway.app',
     '127.0.0.1',
     'localhost',
     'www.privatisation.go.ke',
@@ -35,8 +36,8 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    'https://privatization-system-production.up.railway.app',  # ADDED
     'https://privatisation-production.up.railway.app',
-     'https://privatisation-production.up.railway.app',
     'https://127.0.0.1',
     'https://localhost',
     'https://privatisation.go.ke',
