@@ -5,6 +5,7 @@ Optimized for local development (SQLite) and production on Railway (PostgreSQL)
 """
 
 import os
+import sys
 from pathlib import Path
 import dj_database_url
 from dotenv import load_dotenv
@@ -109,25 +110,23 @@ TEMPLATES = [
 WSGI_APPLICATION = 'dict.wsgi.application'
 
 # ==================== DATABASE ====================
-# SQLite for local development, PostgreSQL for production (Railway)
+# DIRECT POSTGRESQL CONFIGURATION - Using public Railway URL
 
-# Default configuration (SQLite for local development)
+# Hardcoded database URL from Railway
+RAILWAY_DB_URL = 'postgresql://postgres:KGbbVXopumYpHDMBeAPsNdUHqeLCJrZA@zephyr.proxy.rlwy.net:38090/railway'
+
+# Use environment variable if available, otherwise use hardcoded URL
+DATABASE_URL = os.environ.get('DATABASE_URL', RAILWAY_DB_URL)
+
+# Configure database - FORCE PostgreSQL for both local and production
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
-# Override with PostgreSQL if DATABASE_URL exists (Railway production)
-DATABASE_URL = os.environ.get('DATABASE_URL')
-if DATABASE_URL:
-    # Parse the DATABASE_URL from Railway
-    DATABASES['default'] = dj_database_url.config(
+    'default': dj_database_url.config(
         default=DATABASE_URL,
-        conn_max_age=1800,  # Reuse connections for 30 minutes
-        ssl_require=not DEBUG  # Require SSL in production
+        conn_max_age=600,
+        conn_health_checks=True,
+        ssl_require=False  # Set to True if Railway requires SSL
     )
+}
 
 # ==================== PASSWORD VALIDATION ====================
 
@@ -235,3 +234,82 @@ LOGGING = {
         },
     },
 }
+
+# ==================== DATABASE CONNECTION TEST ====================
+# This will test the database connection when running Django commands
+
+def test_database_connection():
+    """Test database connection and display status"""
+    try:
+        from django.db import connections
+        from django.core.management.color import color_style
+        
+        style = color_style()
+        
+        # Try to connect to the database
+        connection = connections['default']
+        connection.ensure_connection()
+        
+        # Get connection information
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT version();")
+            version = cursor.fetchone()[0]
+            
+            cursor.execute("SELECT current_database();")
+            db_name = cursor.fetchone()[0]
+            
+            cursor.execute("SELECT inet_server_addr();")
+            server_addr = cursor.fetchone()[0]
+            
+            cursor.execute("SELECT COUNT(*) FROM information_schema.tables WHERE table_schema = 'public';")
+            table_count = cursor.fetchone()[0]
+        
+        # Print success message
+        print("\n" + "="*70)
+        print(style.SUCCESS("✅ DATABASE CONNECTION SUCCESSFUL!"))
+        print("="*70)
+        print(f"📊 Database Name: {style.SUCCESS(db_name)}")
+        print(f"🐘 PostgreSQL Version: {style.SUCCESS(version.split(',')[0])}")
+        print(f"🌐 Server Address: {style.SUCCESS(server_addr)}")
+        print(f"📈 Tables in database: {style.SUCCESS(table_count)}")
+        print(f"🔧 Database Engine: {style.SUCCESS(DATABASES['default']['ENGINE'])}")
+        print(f"📍 Database Host: {style.SUCCESS(DATABASES['default'].get('HOST', 'localhost'))}")
+        print("="*70 + "\n")
+        
+        return True
+        
+    except Exception as e:
+        from django.core.management.color import color_style
+        style = color_style()
+        
+        print("\n" + "="*70)
+        print(style.ERROR("❌ DATABASE CONNECTION FAILED!"))
+        print("="*70)
+        print(style.ERROR(f"Error: {e}"))
+        print("="*70)
+        print("\nTroubleshooting tips:")
+        print("1. Check if DATABASE_URL is correct in settings.py")
+        print("2. Verify PostgreSQL server is running")
+        print("3. Check if your IP is allowed to connect")
+        print("4. Ensure psycopg2-binary is installed: pip install psycopg2-binary")
+        print("="*70 + "\n")
+        
+        # Don't crash the server if DEBUG is False (production)
+        if not DEBUG:
+            print("⚠️  Warning: Continuing anyway (DEBUG=False mode)")
+            return False
+        else:
+            print("🛑 Stopping due to DEBUG=True mode")
+            sys.exit(1)
+
+# Run database test only for specific management commands
+test_commands = ['runserver', 'shell', 'check', 'createsuperuser', 'makemigrations', 'migrate']
+
+if 'manage.py' in sys.argv and any(cmd in sys.argv for cmd in test_commands):
+    # Initialize Django to test connection
+    try:
+        import django
+        django.setup()
+        test_database_connection()
+    except Exception as e:
+        print(f"Error during database test setup: {e}")
